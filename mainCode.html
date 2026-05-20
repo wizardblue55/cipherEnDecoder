@@ -1,110 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Python: module mainCode</title>
-<style type="text/css">
-body { font-family:Helvetica, arial; margin: 30px; }
-dt { background-color: #e0e0e0; }
-dd { margin-bottom: 20px; }
-.section { margin-top: 20px; margin-bottom: 20px; }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pythonCipherProject Docs</title>
+
+<style>
+body { background: #0e0f14; color: #e6e8f2; font-family: Segoe UI, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 24px; }
+a { color: #82aaff; }
+a:hover { text-decoration: underline; }
+code, pre, .code { font-family: Consolas, Monaco, monospace; background: #111827; color: #cbd5e1; padding: 2px 4px; border-radius: 4px; }
+h1, h2, h3 { color: #f8fafc; }
+article { margin-bottom: 24px; }
+section { margin-bottom: 24px; }
+.variable { color: #7dd3fc; }
+.signature { color: #a5b4fc; font-size: 0.95em; margin-left: 8px; }
+.header { border-bottom: 1px solid #334155; padding-bottom: 12px; margin-bottom: 24px; }
+.box { background: #111827; border: 1px solid #334155; border-radius: 10px; padding: 18px; }
 </style>
+
 </head>
-<body bgcolor="#f0f0f8">
-<hr>
-<h1>mainCode</h1>
-<p>Simple Caesar-style cipher module.</p>
-
-<p>This module defines a basic shift cipher that encodes and decodes text using a combined
-character set of latin letters, digits, Cyrillic letters, Greek letters, Hebrew letters,
-Arabic letters, and common symbols.</p>
-
-<hr>
+<body>
+<div class="header">
+<h1>pythonCipherProject</h1>
+<p>Cipher application with a simple shift cipher and Tkinter UI.<br><br>This module implements a configurable shift cipher that supports a combined<br>alphabet of Latin letters, digits, Cyrillic letters, Greek letters, Hebrew<br>letters, Arabic letters, and common symbols. Encoding and decoding are done<br>by shifting characters within that combined alphabet based on the input length.<br><br>The module also provides a minimal Tkinter UI for entering text and displaying<br>encoded or decoded results.<br></p>
+</div>
+<section class="box">
 <h2>Functions</h2>
-
-<h3><a name="start">start</a>()</h3>
-<dd><p>Prompt the user for input, encode it, and decode it back.</p>
-
-<p>This function reads a line of text from standard input, prints the encoded result,
-and then prints the decoded result to verify the transformation.</p></dd>
-
-<h3><a name="cipher">cipher</a>(x)</h3>
-<dd><p>Encode a string by shifting each character forward in the combined alphabet.</p>
-
-<p>The shift amount is determined by the length of the input string. If the shift
-exceeds the length of the combined alphabet, it wraps around using modulo arithmetic.</p>
-
-<dl compact>
-<dt><b>Parameters</b></dt>
-<dd>
-<dl compact>
-<dt><b>x</b> (str): The plaintext string to encode.</dt>
-</dl>
-</dd>
-</dl>
-
-<dl compact>
-<dt><b>Returns</b></dt>
-<dd>str: The encoded ciphertext.</dd>
-</dl></dd>
-
-<h3><a name="decode">decode</a>(x)</h3>
-<dd><p>Decode a string by shifting each character backward in the combined alphabet.</p>
-
-<p>The shift amount is determined by the length of the encoded string. If the shift
-exceeds the length of the combined alphabet, it wraps around using modulo arithmetic.</p>
-
-<dl compact>
-<dt><b>Parameters</b></dt>
-<dd>
-<dl compact>
-<dt><b>x</b> (str): The ciphertext string to decode.</dt>
-</dl>
-</dd>
-</dl>
-
-<dl compact>
-<dt><b>Returns</b></dt>
-<dd>str: The decoded plaintext.</dd>
-</dl></dd>
-
-<hr>
+<article><h3>__Main__<span class="signature">()</span></h3><p>Build and run the main Tkinter application.<br><br>Creates the application window, input and output text widgets, and buttons<br>for encoding and decoding. The function then enters the Tkinter event loop.</p></article>
+<article><h3>cipher<span class="signature">(x)</span></h3><p>Encode text by shifting each character forward in the combined alphabet.<br><br>The shift amount is derived from the length of the input string. If the<br>shift is larger than the size of the combined alphabet, the value wraps<br>around using modulo arithmetic.<br><br>Args:<br>    x (str): The plaintext string to encode.<br><br>Returns:<br>    str: The encoded ciphertext.</p></article>
+<article><h3>decode<span class="signature">(x)</span></h3><p>Decode text by shifting each character backward in the combined alphabet.<br><br>The shift amount is derived from the length of the encoded string. If the<br>shift is larger than the size of the combined alphabet, the value wraps<br>around using modulo arithmetic.<br><br>Args:<br>    x (str): The ciphertext string to decode.<br><br>Returns:<br>    str: The decoded plaintext.</p></article>
+<article><h3>start<span class="signature">()</span></h3><p>Run a minimal console demonstration of encode/decode.<br><br>Prompts the user for input, prints the encoded text, and then prints the<br>decoded text to verify that the encode/decode cycle returns the original<br>string.</p></article>
+<article><h3>windowInit<span class="signature">()</span></h3><p>Initialize the Tkinter root window.<br><br>Sets the window title and geometry for the application.</p></article>
+</section>
+<section class="box">
 <h2>Data</h2>
-
-<h3><b>alphaL</b> = ['a', 'b', 'c', ..., 'z']</h3>
-<dd>List of lowercase Latin letters.</dd>
-
-<h3><b>alphaU</b> = ['A', 'B', 'C', ..., 'Z']</h3>
-<dd>List of uppercase Latin letters.</dd>
-
-<h3><b>crAlphaL</b> = ['а', 'б', 'в', ..., 'я']</h3>
-<dd>List of lowercase Cyrillic letters.</dd>
-
-<h3><b>crAlphaU</b> = ['А', 'Б', 'В', ..., 'Я']</h3>
-<dd>List of uppercase Cyrillic letters.</dd>
-
-<h3><b>grAlphaL</b> = ['α', 'β', 'γ', ..., 'ω']</h3>
-<dd>List of lowercase Greek letters.</dd>
-
-<h3><b>grAlphaU</b> = ['Α', 'Β', 'Γ', ..., 'Ω']</h3>
-<dd>List of uppercase Greek letters.</dd>
-
-<h3><b>heAlpha</b> = ['א', 'ב', 'ג', ..., 'ת']</h3>
-<dd>List of Hebrew letters.</dd>
-
-<h3><b>arAlpha</b> = ['ا', 'ب', 'ت', ..., 'ي']</h3>
-<dd>List of Arabic letters.</dd>
-
-<h3><b>num</b> = ['0', '1', '2', ..., '9']</h3>
-<dd>List of digit characters.</dd>
-
-<h3><b>symble</b> = ['!', '@', '#', ..., ',']</h3>
-<dd>List of common symbol characters.</dd>
-
-<h3><b>combine</b> = alphaL + alphaU + num + crAlphaL + crAlphaU + grAlphaL + grAlphaU + heAlpha + arAlpha + symble</h3>
-<dd>Combined character set used for cipher operations.</dd>
-
-<hr>
-<p><i>Generated by pydoc on 2026-05-19</i></p>
+<div><span class="variable">alphaL</span> = <code>[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;, &#x27;g&#x27;, &#x27;h&#x27;, &#x27;i&#x27;, &#x27;j&#x27;, &#x27;k&#x27;, &#x27;l&#x27;, &#x27;m&#x27;, &#x27;n&#x27;, &#x27;o&#x27;, &#x27;p&#x27;, &#x27;q&#x27;, &#x27;r&#x27;, &#x27;s&#x27;, &#x27;t&#x27;, &#x27;u&#x27;, &#x27;v&#x27;, &#x27;w&#x27;, &#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;]</code></div>
+<div><span class="variable">alphaU</span> = <code>[&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;, &#x27;H&#x27;, &#x27;I&#x27;, &#x27;J&#x27;, &#x27;K&#x27;, &#x27;L&#x27;, &#x27;M&#x27;, &#x27;N&#x27;, &#x27;O&#x27;, &#x27;P&#x27;, &#x27;Q&#x27;, &#x27;R&#x27;, &#x27;S&#x27;, &#x27;T&#x27;, &#x27;U&#x27;, &#x27;V&#x27;, &#x27;W&#x27;, &#x27;X&#x27;, &#x27;Y&#x27;, &#x27;Z&#x27;]</code></div>
+<div><span class="variable">arAlpha</span> = <code>[&#x27;ا&#x27;, &#x27;ب&#x27;, &#x27;ت&#x27;, &#x27;ث&#x27;, &#x27;ج&#x27;, &#x27;ح&#x27;, &#x27;خ&#x27;, &#x27;د&#x27;, &#x27;ذ&#x27;, &#x27;ر&#x27;, &#x27;ز&#x27;, &#x27;س&#x27;, &#x27;ش&#x27;, &#x27;ص&#x27;, &#x27;ض&#x27;, &#x27;ط&#x27;, &#x27;ظ&#x27;, &#x27;ع&#x27;, &#x27;غ&#x27;, &#x27;ف&#x27;, &#x27;ق&#x27;, &#x27;ك&#x27;, &#x27;ل&#x27;, &#x27;م&#x27;, &#x27;ن&#x27;, &#x27;ه&#x27;, &#x27;و&#x27;, &#x27;ي&#x27;]</code></div>
+<div><span class="variable">combine</span> = <code>[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;, &#x27;g&#x27;, &#x27;h&#x27;, &#x27;i&#x27;, &#x27;j&#x27;, &#x27;k&#x27;, &#x27;l&#x27;, &#x27;m&#x27;, &#x27;n&#x27;, &#x27;o&#x27;, &#x27;p&#x27;, &#x27;q&#x27;, &#x27;r&#x27;, &#x27;s&#x27;, &#x27;t&#x27;, &#x27;u&#x27;, &#x27;v&#x27;, &#x27;w&#x27;, &#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;, &#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;, &#x27;H&#x27;, &#x27;I&#x27;, &#x27;J&#x27;, &#x27;K&#x27;, &#x27;L&#x27;, &#x27;M&#x27;, &#x27;N&#x27;,...</code></div>
+<div><span class="variable">crAlphaL</span> = <code>[&#x27;а&#x27;, &#x27;б&#x27;, &#x27;в&#x27;, &#x27;г&#x27;, &#x27;д&#x27;, &#x27;е&#x27;, &#x27;ж&#x27;, &#x27;з&#x27;, &#x27;и&#x27;, &#x27;й&#x27;, &#x27;к&#x27;, &#x27;л&#x27;, &#x27;м&#x27;, &#x27;н&#x27;, &#x27;о&#x27;, &#x27;п&#x27;, &#x27;р&#x27;, &#x27;с&#x27;, &#x27;т&#x27;, &#x27;у&#x27;, &#x27;ф&#x27;, &#x27;х&#x27;, &#x27;ц&#x27;, &#x27;ч&#x27;, &#x27;ш&#x27;, &#x27;щ&#x27;, &#x27;ъ&#x27;, &#x27;ы&#x27;, &#x27;ь&#x27;, &#x27;э&#x27;, &#x27;ю&#x27;, &#x27;я&#x27;]</code></div>
+<div><span class="variable">crAlphaU</span> = <code>[&#x27;А&#x27;, &#x27;Б&#x27;, &#x27;В&#x27;, &#x27;Г&#x27;, &#x27;Д&#x27;, &#x27;Е&#x27;, &#x27;Ж&#x27;, &#x27;З&#x27;, &#x27;И&#x27;, &#x27;Й&#x27;, &#x27;К&#x27;, &#x27;Л&#x27;, &#x27;М&#x27;, &#x27;Н&#x27;, &#x27;О&#x27;, &#x27;П&#x27;, &#x27;Р&#x27;, &#x27;С&#x27;, &#x27;Т&#x27;, &#x27;У&#x27;, &#x27;Ф&#x27;, &#x27;Х&#x27;, &#x27;Ц&#x27;, &#x27;Ч&#x27;, &#x27;Ш&#x27;, &#x27;Щ&#x27;, &#x27;Ъ&#x27;, &#x27;Ы&#x27;, &#x27;Ь&#x27;, &#x27;Э&#x27;, &#x27;Ю&#x27;, &#x27;Я&#x27;]</code></div>
+<div><span class="variable">grAlphaL</span> = <code>[&#x27;α&#x27;, &#x27;β&#x27;, &#x27;γ&#x27;, &#x27;δ&#x27;, &#x27;ε&#x27;, &#x27;ζ&#x27;, &#x27;η&#x27;, &#x27;θ&#x27;, &#x27;ι&#x27;, &#x27;κ&#x27;, &#x27;λ&#x27;, &#x27;μ&#x27;, &#x27;ν&#x27;, &#x27;ξ&#x27;, &#x27;ο&#x27;, &#x27;π&#x27;, &#x27;ρ&#x27;, &#x27;σ&#x27;, &#x27;τ&#x27;, &#x27;υ&#x27;, &#x27;φ&#x27;, &#x27;χ&#x27;, &#x27;ψ&#x27;, &#x27;ω&#x27;]</code></div>
+<div><span class="variable">grAlphaU</span> = <code>[&#x27;Α&#x27;, &#x27;Β&#x27;, &#x27;Γ&#x27;, &#x27;Δ&#x27;, &#x27;Ε&#x27;, &#x27;Ζ&#x27;, &#x27;Η&#x27;, &#x27;Θ&#x27;, &#x27;Ι&#x27;, &#x27;Κ&#x27;, &#x27;Λ&#x27;, &#x27;Μ&#x27;, &#x27;Ν&#x27;, &#x27;Ξ&#x27;, &#x27;Ο&#x27;, &#x27;Π&#x27;, &#x27;Ρ&#x27;, &#x27;Σ&#x27;, &#x27;Τ&#x27;, &#x27;Υ&#x27;, &#x27;Φ&#x27;, &#x27;Χ&#x27;, &#x27;Ψ&#x27;, &#x27;Ω&#x27;]</code></div>
+<div><span class="variable">heAlpha</span> = <code>[&#x27;א&#x27;, &#x27;ב&#x27;, &#x27;ג&#x27;, &#x27;ד&#x27;, &#x27;ה&#x27;, &#x27;ו&#x27;, &#x27;ז&#x27;, &#x27;ח&#x27;, &#x27;ט&#x27;, &#x27;י&#x27;, &#x27;כ&#x27;, &#x27;ל&#x27;, &#x27;מ&#x27;, &#x27;נ&#x27;, &#x27;ס&#x27;, &#x27;ע&#x27;, &#x27;פ&#x27;, &#x27;צ&#x27;, &#x27;ק&#x27;, &#x27;ר&#x27;, &#x27;ש&#x27;, &#x27;ת&#x27;]</code></div>
+<div><span class="variable">num</span> = <code>[&#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;6&#x27;, &#x27;7&#x27;, &#x27;8&#x27;, &#x27;9&#x27;]</code></div>
+<div><span class="variable">symble</span> = <code>[&#x27;!&#x27;, &#x27;@&#x27;, &#x27;#&#x27;, &#x27;$&#x27;, &#x27;%&#x27;, &#x27;^&#x27;, &#x27;&amp;&#x27;, &#x27;*&#x27;, &#x27;(&#x27;, &#x27;)&#x27;, &#x27;-&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;[&#x27;, &#x27;]&#x27;, &#x27;{&#x27;, &#x27;}&#x27;, &#x27;|&#x27;, &#x27;:&#x27;, &#x27;;&#x27;, &#x27;&lt;&#x27;, &#x27;&gt;&#x27;, &#x27;.&#x27;, &#x27;?&#x27;, &#x27;/&#x27;, &#x27;~&#x27;, &#x27;`&#x27;, &#x27; &#x27;, &#x27;,&#x27;, &quot;&#x27;&quot;]</code></div>
+</section>
 </body>
 </html>
