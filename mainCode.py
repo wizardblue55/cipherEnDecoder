@@ -8,15 +8,14 @@ Arabic letters, and common symbols.
 """
 def __init_():
     """Initialize the cipher module.
-
-    This function is currently a placeholder and does not perform any initialization.
-    It can be expanded in the future to set up any necessary state or configurations.
+    This function sets up the main application window using Tkinter. It creates a window
+    with the title "Cipher Module" and a size of 1080x720 pixels, and starts the main event loop.
     """
     root = tk.Tk()
     root.title("Cipher Module")
     root.geometry("1080x720")
     root.mainloop()
-
+    
 def start():
     """Prompt the user for input, encode it, and decode it back.
 
