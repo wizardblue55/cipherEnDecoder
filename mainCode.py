@@ -1,9 +1,21 @@
+import tkinter as tk
+
 """Simple Caesar-style cipher module.
 
 This module defines a basic shift cipher that encodes and decodes text using a combined
 character set of latin letters, digits, Cyrillic letters, Greek letters, Hebrew letters,
 Arabic letters, and common symbols.
 """
+def __init_():
+    """Initialize the cipher module.
+
+    This function is currently a placeholder and does not perform any initialization.
+    It can be expanded in the future to set up any necessary state or configurations.
+    """
+    root = tk.Tk()
+    root.title("Cipher Module")
+    root.geometry("1080x720")
+    root.mainloop()
 
 def start():
     """Prompt the user for input, encode it, and decode it back.
